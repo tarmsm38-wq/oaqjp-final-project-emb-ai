@@ -13,7 +13,12 @@ def emot_detector():
     sadness = response['sadness']
     dominant_emotion =response['dominant_emotion']
     slice_items=list(response.items())
-    return f"For the given statement, the system response is 'anger': {anger}, 'disgust':{disgust}, 'fear':{fear}, 'joy':{joy}, 'sadness':{sadness}. The dominant emotion is {dominant_emotion}"
+    
+    if dominant_emotion is None:
+        return "Invalid input! Try again."
+    
+    else:
+        return f"For the given statement, the system response is 'anger': {anger}, 'disgust':{disgust}, 'fear':{fear}, 'joy':{joy}, 'sadness':{sadness}. The dominant emotion is {dominant_emotion}"
    
 
 @app.route("/")
